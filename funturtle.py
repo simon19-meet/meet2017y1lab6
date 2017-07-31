@@ -21,33 +21,58 @@ import turtle
 ##triangle.goto(200,200)
 ##triangle.stamp()
 ##triangle.goto(-100,-100)
-up_arrow="up"
-left_arrow="left"
-down_arrow="down"
-right_arrow="right"
+up_arrow="Up"
+left_arrow="Left"
+down_arrow="Down"
+right_arrow="Right"
 spacebar="space"
 
-Up=0
-Left=1
-Down=2
-Right=3
+up=0
+left=1
+down=2
+right=3
 direction=up
 def up():
     global direction
-    direction=Up
+    direction=up
     print('You pressed up!')
+    old_pos=turtle.pos()
+    x=old_pos[0]
+    y=old_pos[1]
+    turtle.goto(x,y+10)
+    print(turtle.pos())
 def left():
     global direction
-    direction=Left
+    direction=left
     print('You pressed left!')
+    old_pos=turtle.pos()
+    x=old_pos[0]
+    y=old_pos[1]
+    turtle.goto(x-10,y)
+    print(turtle.pos())
 def down():
     global direction
-    direction=Down
+    direction=down
     print('You pressed down!')
+    old_pos=turtle.pos()
+    x=old_pos[0]
+    y=old_pos[1]
+    turtle.goto(x,y-10)
+    print(turtle.pos())
 def right():
     global direction
-    direction=Right
+    direction=right
     print('You pressed right!')
-turtle.onkeypress(up, Up)
+    old_pos=turtle.pos()
+    x=old_pos[0]
+    y=old_pos[1]
+    turtle.goto(x+10,y)
+    print(turtle.pos())
+turtle.onkeypress(up, up_arrow)
+turtle.onkeypress(left, left_arrow)
+turtle.onkeypress(down, down_arrow)
+turtle.onkeypress(right, right_arrow)
+turtle.onkeypress(turtle.stamp, spacebar)
+turtle.listen()
 turtle.mainloop()
 
